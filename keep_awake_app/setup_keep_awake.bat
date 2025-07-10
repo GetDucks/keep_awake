@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-set REPO_URL=https://github.com/yourusername/keep-awake-app.git
+set REPO_URL=https://github.com/GetDucks/keep_awake.git
 set APP_DIR=%cd%\keep-awake-app
 set PY_SCRIPT=keep_awake_tray.py
 set INNO_SCRIPT=keep_awake.iss
