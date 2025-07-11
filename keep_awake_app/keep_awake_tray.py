@@ -1,9 +1,17 @@
+import sys
 import time
 import ctypes
 import threading
 from pystray import Icon, MenuItem, Menu
 from PIL import Image, ImageDraw
 
+# === SINGLETON: Only one instance allowed ===
+mutex = ctypes.windll.kernel32.CreateMutexW(None, False, "KeepAwakeSingletonMutex")
+if ctypes.GetLastError() == 183:
+    print("Another instance is already running. Exiting.")
+    sys.exit(0)
+
+# === CONFIG ===
 running = True
 ES_CONTINUOUS = 0x80000000
 ES_SYSTEM_REQUIRED = 0x00000001
